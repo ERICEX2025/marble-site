@@ -1,0 +1,16 @@
+;; Cloudflare → DNS → Records → Import and Export → Import DNS records
+;; Every record below must be "DNS only" (grey cloud), NOT proxied.
+;; GitHub issues its own Let's Encrypt certificate and cannot complete the
+;; ACME challenge through Cloudflare's proxy.
+
+getmarble.app.      1   IN  A       185.199.108.153
+getmarble.app.      1   IN  A       185.199.109.153
+getmarble.app.      1   IN  A       185.199.110.153
+getmarble.app.      1   IN  A       185.199.111.153
+
+getmarble.app.      1   IN  AAAA    2606:50c0:8000::153
+getmarble.app.      1   IN  AAAA    2606:50c0:8001::153
+getmarble.app.      1   IN  AAAA    2606:50c0:8002::153
+getmarble.app.      1   IN  AAAA    2606:50c0:8003::153
+
+www.getmarble.app.  1   IN  CNAME   ericex2025.github.io.
