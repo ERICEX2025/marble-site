@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marble — the calorie target that corrects itself</title>
-<meta name="description" content="Every calorie app hands you a number and lets you believe it. Marble tells you it is a guess, then spends three weeks measuring what your body actually does and corrects it.">
+<meta name="description" content="Every calorie app hands you a number and lets you believe it. Marble tells you it's a guess, then measures what your body actually does and fixes it.">
 <meta property="og:title" content="Marble — the calorie target that corrects itself">
 <meta property="og:description" content="Your calorie target is a guess. Marble is the one that admits it — then fixes it from your own weigh-ins.">
 <meta property="og:image" content="icon.png">
@@ -28,15 +28,15 @@
   </header>
 
   <main>
+
+    <!-- ─────────────────────────── hero ─────────────────────────── -->
     <section class="hero">
       <div>
         <p class="label">AI nutrition coach</p>
         <h1>Every calorie app is guessing. This one <em>finds out</em>.</h1>
         <p class="lede">
-          Photograph a meal and Marble reads it — the dish, the calories, the
-          protein. Weigh in each morning and it learns what your body actually
-          burns, then corrects the target it gave you on day one. Every other
-          tracker hands you a number and lets you believe it.
+          Photograph your food. Step on the scale. Marble works out what you
+          actually burn — and corrects the target it gave you on day one.
         </p>
         <div class="cta-row">
           <a class="cta" href="#">Download on the App Store</a>
@@ -45,38 +45,148 @@
       </div>
       <figure class="hero-art">
         <img src="hero.png" width="900" height="900"
-             alt="A glass marble: a pale sphere with a bright highlight, on a tan ground.">
+             alt="A marble: a pale sphere with a bright highlight.">
       </figure>
     </section>
 
+    <hr class="rule">
+
+    <!-- ─────────────────── 1. the scale (toggle) ─────────────────── -->
+    <section class="sec reveal" id="scale">
+      <p class="label">The scale</p>
+      <h2>Your scale lies. Every morning.</h2>
+
+      <div class="switch" role="group" aria-label="What the chart shows">
+        <button type="button" data-view="raw" aria-pressed="true">What the scale said</button>
+        <button type="button" data-view="trend" aria-pressed="false">What Marble watches</button>
+      </div>
+
+      <figure class="figure" data-view="raw">
+        <svg viewBox="0 0 880 262" role="img"
+             aria-label="Twenty-eight daily weigh-ins scattered widely, with a smooth trend line falling steadily through them.">
+          <g class="grid">
+            <line x1="0" y1="20"  x2="880" y2="20"/>
+            <line x1="0" y1="85"  x2="880" y2="85"/>
+            <line x1="0" y1="150" x2="880" y2="150"/>
+            <line x1="0" y1="215" x2="880" y2="215"/>
+          </g>
+          <g class="dots">
+            <circle cx="8" cy="20.4" r="4"/><circle cx="40" cy="98.8" r="4"/><circle cx="72" cy="43.4" r="4"/>
+            <circle cx="104" cy="17.8" r="4"/><circle cx="136" cy="117.7" r="4"/><circle cx="168" cy="79.8" r="4"/>
+            <circle cx="200" cy="150.1" r="4"/><circle cx="232" cy="58.2" r="4"/><circle cx="264" cy="27.2" r="4"/>
+            <circle cx="296" cy="127.1" r="4"/><circle cx="328" cy="155.4" r="4"/><circle cx="360" cy="94.7" r="4"/>
+            <circle cx="392" cy="69.0" r="4"/><circle cx="424" cy="186.5" r="4"/><circle cx="456" cy="113.6" r="4"/>
+            <circle cx="488" cy="88.0" r="4"/><circle cx="520" cy="175.7" r="4"/><circle cx="552" cy="73.1" r="4"/>
+            <circle cx="584" cy="162.2" r="4"/><circle cx="616" cy="201.4" r="4"/><circle cx="648" cy="128.4" r="4"/>
+            <circle cx="680" cy="156.8" r="4"/><circle cx="712" cy="109.5" r="4"/><circle cx="744" cy="197.3" r="4"/>
+            <circle cx="776" cy="218.9" r="4"/><circle cx="808" cy="158.2" r="4"/><circle cx="840" cy="141.9" r="4"/>
+            <circle cx="872" cy="220.2" r="4"/>
+          </g>
+          <g class="rings">
+            <circle cx="392" cy="69.0"  r="11"/>
+            <circle cx="424" cy="186.5" r="11"/>
+          </g>
+          <path class="trend"
+                d="M8,20.4 L40,32.6 L72,33.9 L104,31.2 L136,44.8 L168,50.1 L200,65.0 L232,63.6 L264,58.2 L296,69.0 L328,82.5 L360,83.9 L392,81.2 L424,97.4 L456,100.1 L488,97.4 L520,109.5 L552,102.8 L584,110.9 L616,124.4 L648,124.4 L680,129.8 L712,125.8 L744,136.6 L776,148.7 L808,150.1 L840,148.7 L872,159.5"/>
+        </svg>
+        <div class="axis"><span>Day 1</span><span>Day 28</span></div>
+        <figcaption>
+          <span data-cap="raw">The two circled mornings are one night apart. <b>2.8 lb.</b> Nobody gains that in fat.</span>
+          <span data-cap="trend" hidden>Same 28 mornings, noise removed. <b>Down 5 lb</b> — and it never once told you to panic.</span>
+        </figcaption>
+      </figure>
+    </section>
 
     <hr class="rule">
 
-    <!-- ══════════ the app ══════════ -->
-    <section class="section">
-      <p class="label">The app</p>
-      <h2>Three screens. Nothing you have to learn.</h2>
-      <p>
-        No streaks, no badges, no ring to close. Marble asks two things of you a
-        day and spends the rest of its time working out whether the number it
-        gave you was right.
-      </p>
+    <!-- ───────────── 2. the correction (scrubber) ───────────── -->
+    <section class="sec reveal" id="correction">
+      <p class="label">The correction</p>
+      <h2>Two weeks in, it tells you it was wrong.</h2>
 
-      <div class="devices">
-        <figure class="device">
+      <div class="lab">
+        <div class="readout">
+          <div class="kpi">
+            <span class="kpi-n" id="target">2,290</span>
+            <span class="kpi-u">kcal a day</span>
+            <span class="badge" id="badge" data-state="est">estimated</span>
+          </div>
+          <dl class="stats">
+            <div><dt>Planned</dt><dd>−1.1 lb / wk</dd></div>
+            <div><dt>Measured</dt><dd id="measured">—</dd></div>
+            <div><dt>Weigh-ins</dt><dd id="ndays">1</dd></div>
+          </dl>
+        </div>
+
+        <svg class="lab-chart" viewBox="0 0 700 200" role="img" id="labchart"
+             aria-label="Daily weigh-ins accumulating against the planned rate of loss.">
+          <defs><clipPath id="rv"><rect id="rvr" x="0" y="0" width="700" height="200"/></clipPath></defs>
+          <g class="grid">
+            <line x1="0" y1="22"  x2="700" y2="22"/>
+            <line x1="0" y1="88"  x2="700" y2="88"/>
+            <line x1="0" y1="154" x2="700" y2="154"/>
+          </g>
+          <path class="plan" d="M26,81.4 L674,154"/>
+          <g clip-path="url(#rv)">
+            <path class="trend" d="M26.0,81.4 L72.3,76.0 L118.6,80.2 L164.9,79.4 L211.1,86.2 L257.4,83.0 L303.7,86.7 L350.0,94.3 L396.3,94.4 L442.6,103.3 L488.9,103.0 L535.1,110.6 L581.4,107.7 L627.7,112.7 L674.0,114.4"/>
+            <g class="dots">
+              <circle cx="26.0" cy="81.4" r="4.5"/><circle cx="72.3" cy="45.1" r="4.5"/><circle cx="118.6" cy="104.5" r="4.5"/>
+              <circle cx="164.9" cy="74.8" r="4.5"/><circle cx="211.1" cy="124.3" r="4.5"/><circle cx="257.4" cy="64.9" r="4.5"/>
+              <circle cx="303.7" cy="107.8" r="4.5"/><circle cx="350.0" cy="137.5" r="4.5"/><circle cx="396.3" cy="94.6" r="4.5"/>
+              <circle cx="442.6" cy="154.0" r="4.5"/><circle cx="488.9" cy="101.2" r="4.5"/><circle cx="535.1" cy="154.0" r="4.5"/>
+              <circle cx="581.4" cy="91.3" r="4.5"/><circle cx="627.7" cy="140.8" r="4.5"/><circle cx="674.0" cy="124.3" r="4.5"/>
+            </g>
+          </g>
+        </svg>
+
+        <div class="legend">
+          <span class="key trend-key">your trend</span>
+          <span class="key plan-key">the plan</span>
+        </div>
+
+        <label class="scrub">
+          <span class="vh">Days of weigh-ins</span>
+          <input type="range" id="scrub" min="1" max="15" step="1" value="1">
+        </label>
+
+        <p class="lab-note" id="note">Day one. The target is arithmetic, and arithmetic can be wrong.</p>
+      </div>
+
+      <p class="fine">
+        It moves half the gap, never more than 250 calories at once, then waits
+        another fortnight before it touches the number again.
+      </p>
+    </section>
+
+    <hr class="rule">
+
+    <!-- ───────────────── 3. the app (tabs) ───────────────── -->
+    <section class="sec reveal" id="app">
+      <p class="label">The app</p>
+      <h2>Three screens. Nothing to learn.</h2>
+
+      <div class="tabs" role="tablist" aria-label="Screens">
+        <button role="tab" id="t-today"  aria-controls="p-today"  aria-selected="true">Today</button>
+        <button role="tab" id="t-weight" aria-controls="p-weight" aria-selected="false" tabindex="-1">Weight</button>
+        <button role="tab" id="t-coach"  aria-controls="p-coach"  aria-selected="false" tabindex="-1">Coach</button>
+      </div>
+
+      <div class="stage">
+        <div class="pane" id="p-today" role="tabpanel" aria-labelledby="t-today"
+             data-cap="What's left, and what you ate. One timescale, no streak to protect.">
           <div class="screen">
             <div class="row sb"><span style="font-weight:700">Wednesday</span>
               <span class="thumb" style="border-radius:50%"></span></div>
             <div class="cap" style="margin-top:0.7rem">Today</div>
             <div class="row" style="align-items:baseline;gap:0.4rem;margin-top:0.2rem">
               <span class="big">750</span><span class="dim">to eat</span>
-              <span class="push"></span><span class="dim" style="font-size:0.5rem">ƒ estimated</span>
+              <span class="push"></span><span class="dim" style="font-size:0.5rem">estimated</span>
             </div>
             <div class="track" style="margin-top:0.5rem"><i style="width:67%"></i></div>
             <div class="row sb dim" style="margin-top:0.4rem">
               <span>protein 98 / 180 g</span><span>1,540 of 2,290</span></div>
             <div class="sep"></div>
-            <div class="row sb"><span class="cap">Meals</span><span class="dim">4</span></div>
+            <div class="row sb"><span class="cap">Meals</span><span class="dim">5</span></div>
             <div class="meal"><span class="thumb"></span><span>Greek yogurt</span>
               <span class="push"></span><span class="dim">310</span></div>
             <div class="meal"><span class="thumb"></span><span>Chicken bowl</span>
@@ -85,13 +195,15 @@
               <span class="push"></span><span class="dim">120</span></div>
             <div class="meal"><span class="thumb"></span><span>Almonds</span>
               <span class="push"></span><span class="dim">170</span></div>
+            <div class="meal"><span class="thumb"></span><span>Protein shake</span>
+              <span class="push"></span><span class="dim">300</span></div>
             <div class="push"></div>
             <div class="pill">Weigh in — 10 seconds</div>
           </div>
-          <figcaption><b>Today</b>What you have left, and what you ate. One timescale.</figcaption>
-        </figure>
+        </div>
 
-        <figure class="device">
+        <div class="pane" id="p-weight" role="tabpanel" aria-labelledby="t-weight" hidden
+             data-cap="The line through the noise. Single mornings are never a verdict.">
           <div class="screen">
             <div class="row sb"><span style="font-weight:700">Weight</span>
               <span class="dim">30 days</span></div>
@@ -101,29 +213,29 @@
               <span>−0.9 lb / week</span><span>−5.1 total</span></div>
             <svg viewBox="0 0 200 108" style="margin-top:0.8rem" role="img"
                  aria-label="Daily weigh-ins scattered around a falling trend line.">
-              <line x1="0" y1="14" x2="200" y2="14" stroke="#E9D6BC"/>
-              <line x1="0" y1="50" x2="200" y2="50" stroke="#E9D6BC"/>
-              <line x1="0" y1="86" x2="200" y2="86" stroke="#E9D6BC"/>
-              <g fill="#B8A99A">
+              <g class="grid">
+                <line x1="0" y1="14" x2="200" y2="14"/>
+                <line x1="0" y1="50" x2="200" y2="50"/>
+                <line x1="0" y1="86" x2="200" y2="86"/>
+              </g>
+              <g class="dots">
                 <circle cx="4" cy="24" r="2"/><circle cx="19" cy="52" r="2"/><circle cx="34" cy="30" r="2"/>
                 <circle cx="49" cy="21" r="2"/><circle cx="64" cy="59" r="2"/><circle cx="79" cy="45" r="2"/>
                 <circle cx="94" cy="70" r="2"/><circle cx="109" cy="38" r="2"/><circle cx="124" cy="27" r="2"/>
                 <circle cx="139" cy="63" r="2"/><circle cx="154" cy="74" r="2"/><circle cx="169" cy="53" r="2"/>
                 <circle cx="184" cy="43" r="2"/><circle cx="197" cy="84" r="2"/></g>
-              <circle cx="184" cy="43" r="5.5" fill="none" stroke="#D4A574" stroke-width="1.4"/>
-              <circle cx="197" cy="84" r="5.5" fill="none" stroke="#D4A574" stroke-width="1.4"/>
-              <path d="M4,24 L19,29 L34,30 L49,29 L64,35 L79,37 L94,44 L109,43 L124,40 L139,46 L154,53 L169,54 L184,53 L197,60"
-                    fill="none" stroke="#C4A574" stroke-width="2.4"
-                    stroke-linecap="round" stroke-linejoin="round"/>
+              <g class="rings"><circle cx="184" cy="43" r="5.5"/><circle cx="197" cy="84" r="5.5"/></g>
+              <path class="trend" stroke-width="2.4"
+                    d="M4,24 L19,29 L34,30 L49,29 L64,35 L79,37 L94,44 L109,43 L124,40 L139,46 L154,53 L169,54 L184,53 L197,60"/>
             </svg>
             <div class="dim" style="margin-top:0.6rem">
               The two circled readings are one night apart — 2.6 lb. That's water.</div>
             <div class="push"></div>
           </div>
-          <figcaption><b>Weight</b>The line through the noise, and the correction counting down.</figcaption>
-        </figure>
+        </div>
 
-        <figure class="device">
+        <div class="pane" id="p-coach" role="tabpanel" aria-labelledby="t-coach" hidden
+             data-cap="It has read every meal and every weigh-in, so it answers about you.">
           <div class="screen">
             <div class="row sb"><span style="font-weight:700">Coach</span></div>
             <div class="bubble me" style="margin-top:0.7rem">I'm up 3 lb since Monday</div>
@@ -131,259 +243,105 @@
               was a low reading, not your baseline.</div>
             <div class="bubble">You logged ramen on Tuesday. Sodium holds water for two or
               three days, which is exactly the shape of what you're seeing.</div>
+            <div class="bubble me">so should I eat less this week</div>
+            <div class="bubble">No. You've got nine days of data and the trend is doing what
+              it should. If the target really is too high, Marble will move it itself on
+              day fifteen — and tell you why.</div>
             <div class="push"></div>
             <div class="row sb dim" style="border:1px solid #E9D6BC;border-radius:0.6rem;
                  padding:0.5rem 0.6rem"><span>Message</span><span style="color:#C4A574">↑</span></div>
           </div>
-          <figcaption><b>Coach</b>It has read every meal and every weigh-in, so it answers about you.</figcaption>
-        </figure>
+        </div>
       </div>
+
+      <p class="stage-cap" id="stagecap">What's left, and what you ate. One timescale, no streak to protect.</p>
     </section>
 
     <hr class="rule">
 
-    <!-- ══════════ the guess ══════════ -->
-    <section class="section">
-      <p class="label">Where the number comes from</p>
-      <h2>We show you the arithmetic, including the shaky part.</h2>
-      <p>
-        Your target is built from your body — the equation has been the standard
-        since 1990. But the largest input is a question about how active you are,
-        and <strong>nobody answers that well</strong>. Most people overshoot it.
-        That one line can move your target by a few hundred calories.
-      </p>
+    <!-- ───────────── 4. where the number starts ───────────── -->
+    <section class="sec reveal">
+      <p class="label">Where the number starts</p>
+      <h2>We show you the shaky line.</h2>
 
       <figure class="receipt">
         <div class="soft"><span>at rest</span><span>1,800</span></div>
         <div class="soft lit"><span>your week &nbsp;× 1.55</span><span>2,790</span></div>
         <div class="soft"><span>to lose 1.1 lb a week</span><span>− 500</span></div>
         <div class="tot"><span>your target</span><span>2,290</span></div>
-      </figure>
-
-      <p>
-        So Marble says which line it isn't sure about, rather than handing you a
-        number and letting you assume it's measured. Everything after that is the
-        app finding out.
-      </p>
-    </section>
-
-    <hr class="rule">
-
-    <!-- ══════════ the scale ══════════ -->
-    <section class="section">
-      <p class="label">The part nobody explains</p>
-      <h2>Your scale is going to lie to you. Constantly.</h2>
-      <p>
-        Salt, water, carbohydrate and what's still in your gut move the number by
-        a few pounds overnight. Real fat loss is about half a pound a week.
-        <strong>The noise is several times larger than the signal</strong> — which
-        is why people quit three days into something that was working.
-      </p>
-
-      <figure class="figure">
-        <svg viewBox="0 0 880 240" role="img"
-             aria-label="Twenty-eight daily weigh-ins scattered widely, with a smooth trend line falling steadily through them.">
-          <line x1="0" y1="20"  x2="880" y2="20"  stroke="#E9D6BC"/>
-          <line x1="0" y1="75"  x2="880" y2="75"  stroke="#E9D6BC"/>
-          <line x1="0" y1="130" x2="880" y2="130" stroke="#E9D6BC"/>
-          <line x1="0" y1="185" x2="880" y2="185" stroke="#E9D6BC"/>
-          <g fill="#B8A99A">
-            <circle cx="8" cy="46" r="4"/><circle cx="40" cy="104" r="4"/><circle cx="72" cy="63" r="4"/>
-            <circle cx="104" cy="44" r="4"/><circle cx="136" cy="118" r="4"/><circle cx="168" cy="90" r="4"/>
-            <circle cx="200" cy="142" r="4"/><circle cx="232" cy="74" r="4"/><circle cx="264" cy="51" r="4"/>
-            <circle cx="296" cy="125" r="4"/><circle cx="328" cy="146" r="4"/><circle cx="360" cy="101" r="4"/>
-            <circle cx="392" cy="82" r="4"/><circle cx="424" cy="169" r="4"/><circle cx="456" cy="115" r="4"/>
-            <circle cx="488" cy="96" r="4"/><circle cx="520" cy="161" r="4"/><circle cx="552" cy="85" r="4"/>
-            <circle cx="584" cy="151" r="4"/><circle cx="616" cy="180" r="4"/><circle cx="648" cy="126" r="4"/>
-            <circle cx="680" cy="147" r="4"/><circle cx="712" cy="112" r="4"/><circle cx="744" cy="177" r="4"/>
-            <circle cx="776" cy="193" r="4"/><circle cx="808" cy="148" r="4"/><circle cx="840" cy="136" r="4"/>
-            <circle cx="872" cy="194" r="4"/></g>
-          <circle cx="392" cy="82"  r="11" fill="none" stroke="#D4A574" stroke-width="2"/>
-          <circle cx="424" cy="169" r="11" fill="none" stroke="#D4A574" stroke-width="2"/>
-          <path d="M8,46 L40,55 L72,56 L104,54 L136,64 L168,68 L200,79 L232,78 L264,74 L296,82 L328,92 L360,93 L392,91 L424,103 L456,105 L488,103 L520,112 L552,107 L584,113 L616,123 L648,123 L680,127 L712,124 L744,132 L776,141 L808,142 L840,141 L872,149"
-                fill="none" stroke="#C4A574" stroke-width="3.5"
-                stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="0" y="222" font-size="12" fill="#7D6F62"
-                font-family="ui-monospace,Menlo,monospace">DAY 1</text>
-          <text x="880" y="222" font-size="12" fill="#7D6F62" text-anchor="end"
-                font-family="ui-monospace,Menlo,monospace">DAY 28</text>
-        </svg>
         <figcaption>
-          Grey dots are what the scale said each morning. The line is what Marble
-          watches. <b>The two circled readings are one night apart — nearly 3 lb.</b>
-          Nobody gains that in fat overnight. Meanwhile the line just keeps walking
-          downhill, and it never once told you to panic.
+          The lit row is a question about how active you are. Nobody answers it
+          well, and it's worth several hundred calories — which is the whole
+          reason the app doesn't stop here.
         </figcaption>
       </figure>
     </section>
 
     <hr class="rule">
 
-    <!-- ══════════ the correction ══════════ -->
-    <section class="section">
-      <p class="label">The part no other tracker does</p>
-      <h2>Three weeks in, it tells you it was wrong.</h2>
-      <p>
-        Once your weigh-ins have said something the formula couldn't, Marble
-        compares what your weight actually did against what the target was built
-        to produce — and changes the target to match. Not a nudge you have to
-        interpret. A new number, and a plain sentence about why the first one
-        missed.
-      </p>
-      <blockquote style="font-family:var(--display);font-size:clamp(1.5rem,3.4vw,2.125rem);
-                  line-height:1.3;margin:2rem 0 0;max-width:44rem;letter-spacing:-0.01em">
-        “We were wrong. <span style="color:var(--tan-deep);font-style:italic">Here's the
-        real number.</span>”
-      </blockquote>
-      <p>
-        From then on the figure on your home screen stops saying <em>estimated</em>
-        and starts saying <em>measured</em>. That word changing is the whole
-        product.
-      </p>
-    </section>
-
-    <hr class="rule">
-
-    <section class="sequence">
-      <p class="label">How it works</p>
-      <h2>A guess, two habits, and a correction.</h2>
-      <div class="steps">
-        <article class="step">
-          <div class="ord">1</div>
-          <h3>It starts with a guess</h3>
-          <p>
-            A minute of questions — height, weight, age, what you're after.
-            Marble works out a target and shows you the arithmetic that produced
-            it, including which line is the shakiest. It's an estimate, and it
-            says so.
-          </p>
-        </article>
-        <article class="step">
-          <div class="ord">2</div>
-          <h3>You feed it two things</h3>
-          <p>
-            Photograph what you eat — the dish, the calories, the protein. Then
-            step on the scale each morning. Ten seconds, one number, and the app
-            never judges you on a single reading.
-          </p>
-        </article>
-        <article class="step">
-          <div class="ord">3</div>
-          <h3>It corrects itself</h3>
-          <p>
-            After about three weeks your weigh-ins have said something the
-            formula couldn't: what you actually burn. Marble changes the target
-            to match, and tells you plainly that its first guess was wrong.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <hr class="rule">
-
-    <section class="difference">
-      <p class="label">Why it's different</p>
-      <blockquote>
-        Every calorie app is guessing. Marble is the one that
-        <span>admits it, measures how wrong it was, and fixes the number.</span>
-      </blockquote>
-      <p>
-        The target you're given on day one comes from an equation that's been
-        the standard since 1990 — and it's still only accurate to within a few
-        hundred calories, because the biggest input is a question about how
-        active you are that nobody answers well. Marble treats that as a
-        starting guess rather than a verdict. Your weigh-ins do the rest.
-      </p>
-      <p>
-        Which is also why the scale can't scare you here. A morning is water,
-        salt and what's still in your gut — several pounds of noise around half
-        a pound of signal. Marble watches the line through the noise, and on the
-        morning the number jumps it tells you what it actually means.
-      </p>
-    </section>
-  </main>
-
-    <hr class="rule">
-
-    <section class="difference">
+    <!-- ───────────── 5. what it asks of you ───────────── -->
+    <section class="sec reveal">
       <p class="label">What it asks of you</p>
-      <blockquote>
-        No account, no email, no sign-up — and <span>no permissions at
-        all</span> when you open it for the first time.
-      </blockquote>
-      <p>
-        Your weigh-ins never leave your phone. Not to a server, not to Apple
-        Health, not anywhere — the whole trend and every correction is computed
-        on the device. Meal photos are sent to be analysed and that's the only
-        thing that goes out. The camera is asked for when you first take a
-        photo, notifications only if you choose a weigh-in reminder, and nothing
-        is asked for before the app has done something for you.
-      </p>
+      <h2>Nothing, to begin with.</h2>
+      <ul class="chips">
+        <li>No account</li>
+        <li>No email</li>
+        <li>No permissions on first launch</li>
+        <li>Weigh-ins never leave your phone</li>
+        <li>No streaks</li>
+        <li>No cap on meals, ever</li>
+      </ul>
     </section>
-
 
     <hr class="rule">
 
-    <section class="section">
+    <!-- ───────────── 6. questions ───────────── -->
+    <section class="sec reveal">
       <p class="label">Questions</p>
       <h2>The ones worth answering honestly.</h2>
       <div class="faq">
         <details>
           <summary>How accurate is a photo, really?</summary>
           <p>
-            It's an estimate, and a mixed dish leaves real uncertainty about oil
-            and portion size. But small consistent errors matter much less here
-            than they would elsewhere: because Marble corrects your target against
-            your actual weigh-ins, reading your meals a little low every time
-            simply means the target settles a little lower to match — and your
-            results still land where you wanted them. If something looks wrong,
-            tell the coach and it re-reads the plate.
+            It's an estimate. But reading your meals a little low every time just
+            means the corrected target settles a little lower to match — and your
+            results still land where you wanted them. Consistency matters more
+            than accuracy here.
           </p>
         </details>
         <details>
           <summary>Do I have to weigh myself every day?</summary>
           <p>
-            It's the one thing that makes the rest work, and it takes ten seconds.
-            Weighing daily is also less stressful than weighing weekly, not more —
-            when every reading is one dot in a line, no single morning is a verdict.
-            You're feeding a trend, not collecting a grade.
+            It's the thing that makes the rest work, and it takes ten seconds.
+            Daily is also less stressful than weekly: when every reading is one
+            dot in a line, no single morning is a verdict.
           </p>
         </details>
         <details>
           <summary>What does it cost?</summary>
           <p>
-            Logging is free and always unlimited — photos, weigh-ins, your trend,
-            and the target correction. There is no cap on meals, because an
-            incomplete record would make the correction wrong. The conversational
-            coach is the paid part.
-          </p>
-        </details>
-        <details>
-          <summary>Do I need an account?</summary>
-          <p>
-            No. There's no sign-up, no email, and nothing to log in to. Marble
-            asks for no system permissions at all when you first open it — the
-            camera when you take your first photo, notifications only if you
-            choose a weigh-in reminder.
+            Logging is free and unlimited — photos, weigh-ins, your trend, and
+            the correction. Meals are never capped, because an incomplete record
+            would make the correction wrong. The conversational coach is the
+            paid part.
           </p>
         </details>
         <details>
           <summary>Where does my data go?</summary>
           <p>
-            Your weigh-ins never leave your phone — the trend and every correction
+            Your weigh-ins never leave your phone; the trend and every correction
             are computed on the device. Meal photos are sent to be analysed, and
-            that's the only thing that goes out. Full detail on the
+            that's the only thing that goes out. Detail on the
             <a href="privacy/">privacy page</a>.
           </p>
         </details>
         <details>
           <summary>Is this a good idea if I've struggled with food?</summary>
           <p>
-            Be careful, and talk to a doctor or a registered dietitian first.
-            Marble is built to be less obsessive than most trackers — it hides
-            single readings, refuses to celebrate a streak, and tells you when a
-            scary morning is meaningless. But it is still an app that counts, and
-            counting isn't right for everyone.
+            Talk to a doctor or a dietitian first. Marble hides single readings,
+            refuses to celebrate streaks, and tells you when a scary morning is
+            meaningless — but it is still an app that counts, and counting isn't
+            right for everyone.
           </p>
         </details>
       </div>
@@ -391,14 +349,14 @@
 
     <section class="closer">
       <h2>Stop trusting the number.<br>Start measuring it.</h2>
-      <p>
-        Free to use, no account, and it will tell you when it's wrong.
-      </p>
+      <p>Free, no account, and it will tell you when it's wrong.</p>
       <div class="cta-row">
         <a class="cta" href="#">Download on the App Store</a>
         <span class="cta-note">iPhone · free, no account</span>
       </div>
     </section>
+
+  </main>
 
   <footer class="site-footer">
     <span>© 2026 Marble</span>
@@ -407,6 +365,144 @@
     <span class="spacer">Made by <a href="https://ericko.dev">Eric Ko</a></span>
   </footer>
 </div>
+
+<script>
+(function () {
+  "use strict";
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── 1. scale ⇄ trend ─────────────────────────────────────────────
+     The dots don't leave the DOM, they fade — so the eye can see that the
+     line was always the same line, and only the noise went away. */
+  (function () {
+    var host = document.getElementById("scale");
+    if (!host) return;
+    var buttons = [].slice.call(host.querySelectorAll(".switch button"));
+    var figure  = host.querySelector(".figure");
+    var caps    = [].slice.call(host.querySelectorAll("[data-cap]"));
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var view = button.getAttribute("data-view");
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", b === button); });
+        figure.setAttribute("data-view", view);
+        caps.forEach(function (c) { c.hidden = c.getAttribute("data-cap") !== view; });
+      });
+    });
+  }());
+
+  /* ── 2. the correction, day by day ───────────────────────────────
+     Every number here comes off the real implementation: the trend is an
+     EWMA at α=0.15, the correction is half the measured gap capped at 250
+     kcal, and it refuses to fire before fourteen days of history. Drag to
+     day 15 and the target moves 2,290 → 2,140, which is what the app
+     would actually propose for this series. */
+  (function () {
+    var host = document.getElementById("correction");
+    if (!host) return;
+
+    var X = [26, 72, 119, 165, 211, 257, 304, 350, 396, 443, 489, 535, 581, 628, 674];
+    /* Weekly rate over the whole span so far, from day 8 (before that the
+       app shows nothing, because a week of readings can't tell fat from water). */
+    var RATE = { 8: "−0.4", 9: "−0.3", 10: "−0.5", 11: "−0.5",
+                 12: "−0.6", 13: "−0.5", 14: "−0.5", 15: "−0.5" };
+
+    var slider   = document.getElementById("scrub");
+    var reveal   = document.getElementById("rvr");
+    var target   = document.getElementById("target");
+    var badge    = document.getElementById("badge");
+    var measured = document.getElementById("measured");
+    var ndays    = document.getElementById("ndays");
+    var note     = document.getElementById("note");
+
+    function draw(day) {
+      reveal.setAttribute("width", String(X[day - 1] + 14));
+      ndays.textContent = String(day);
+      measured.textContent = RATE[day] ? RATE[day] + " lb / wk" : "—";
+
+      var done = day >= 15;
+      target.textContent = done ? "2,140" : "2,290";
+      target.classList.toggle("moved", done);
+      badge.textContent = done ? "measured" : "estimated";
+      badge.setAttribute("data-state", done ? "meas" : "est");
+
+      note.textContent =
+        done ? "You were losing half a pound a week, not 1.1 — so you burn less than the formula guessed. Marble drops your target 150 calories and says so."
+        : day >= 8 ? "The gap is showing. Marble still won't move the target — it wants a fortnight first."
+        : day >= 4 ? "Still noise. A single morning is water, salt, and what's in your gut."
+        : "Day one. The target is arithmetic, and arithmetic can be wrong.";
+    }
+
+    slider.addEventListener("input", function () { draw(+slider.value); });
+    draw(1);
+
+    /* Play it once, the first time it comes into view — the control is only
+       obviously a control after something has moved. */
+    if (!still && "IntersectionObserver" in window) {
+      var played = false;
+      new IntersectionObserver(function (entries, self) {
+        if (!entries[0].isIntersecting || played) return;
+        played = true;
+        self.disconnect();
+        var day = 1;
+        var tick = setInterval(function () {
+          day += 1;
+          slider.value = day;
+          draw(day);
+          if (day >= 15) clearInterval(tick);
+        }, 190);
+      }, { threshold: 0.55 }).observe(host.querySelector(".lab"));
+    }
+  }());
+
+  /* ── 3. the three screens ────────────────────────────────────────── */
+  (function () {
+    var host = document.getElementById("app");
+    if (!host) return;
+    var tabs   = [].slice.call(host.querySelectorAll('[role="tab"]'));
+    var caption = document.getElementById("stagecap");
+
+    function show(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+      caption.textContent =
+        document.getElementById(tab.getAttribute("aria-controls")).getAttribute("data-cap");
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { show(tab); });
+      tab.addEventListener("keydown", function (e) {
+        var step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        var next = tabs[(i + step + tabs.length) % tabs.length];
+        next.focus();
+        show(next);
+      });
+    });
+  }());
+
+  /* ── sections arrive as you reach them ───────────────────────────── */
+  (function () {
+    var sections = [].slice.call(document.querySelectorAll(".reveal"));
+    if (still || !("IntersectionObserver" in window)) {
+      sections.forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var watch = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        watch.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px" });
+    sections.forEach(function (s) { watch.observe(s); });
+  }());
+}());
+</script>
 
 </body>
 </html>
