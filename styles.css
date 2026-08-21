@@ -282,3 +282,159 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Depth pass: product screens, the trend chart, FAQ.
+
+   Everything below is drawn in CSS and SVG rather than exported as images —
+   the screens stay in sync with the app because they're built from the same
+   tokens, and the page stays under 30 KB with no image requests.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.section { padding-block: clamp(3rem, 7vw, 5rem); }
+.section > h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  margin: 0.5rem 0 0;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+}
+.section > p { max-width: var(--measure); color: var(--muted); margin: 1.25rem 0 0; }
+.section > p strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- the phone ---------- */
+
+.devices {
+  display: grid;
+  gap: 2.5rem 1.5rem;
+  margin-top: 3rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+@media (min-width: 52rem) { .devices { grid-template-columns: repeat(3, 1fr); } }
+
+.device { width: 100%; max-width: 17rem; }
+.device figcaption {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  text-align: center;
+}
+.device figcaption b { display: block; color: var(--ink); font-weight: 600; }
+
+.screen {
+  position: relative;
+  aspect-ratio: 272 / 560;
+  background: var(--bg);
+  border: 1px solid var(--edge);
+  border-radius: 26px;
+  box-shadow: 0 18px 40px -22px rgba(74, 65, 57, 0.45);
+  padding: 1.75rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 0.625rem;
+  line-height: 1.45;
+}
+.screen::before {
+  content: "";
+  position: absolute; top: 0.5rem; left: 50%; transform: translateX(-50%);
+  width: 3.75rem; height: 0.9rem;
+  background: var(--ink); opacity: 0.85; border-radius: 0.5rem;
+}
+.screen .cap {
+  font-size: 0.5rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.screen .big {
+  font-size: 2rem; font-weight: 700; letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; line-height: 1;
+}
+.screen .row { display: flex; align-items: center; gap: 0.5rem; }
+.screen .sb { justify-content: space-between; }
+.screen .dim { color: var(--muted); }
+.screen .sep { height: 1px; background: #E9D6BC; margin-block: 0.75rem; }
+.screen .track { height: 5px; border-radius: 3px; background: #EFE0CA; overflow: hidden; }
+.screen .track i { display: block; height: 100%; background: var(--tan); }
+.screen .meal { display: flex; align-items: center; gap: 0.5rem; padding-block: 0.4rem;
+                border-bottom: 1px solid #E9D6BC; }
+.screen .meal:last-child { border-bottom: 0; }
+.screen .thumb { width: 1.4rem; height: 1.4rem; border-radius: 0.35rem;
+                 background: var(--edge); flex: none; }
+.screen .push { flex: 1; }
+.screen .pill {
+  background: var(--tan); color: #fff; border-radius: 0.6rem;
+  padding: 0.55rem; text-align: center; font-weight: 700; font-size: 0.5625rem;
+}
+.screen .bubble {
+  background: var(--card); border: 1px solid #E9D6BC; border-radius: 0.7rem;
+  padding: 0.5rem 0.6rem; margin-top: 0.4rem; max-width: 92%;
+}
+.screen .bubble.me { background: var(--tan); color: #fff; border: 0; margin-left: auto; }
+.screen svg { display: block; width: 100%; height: auto; }
+
+/* ---------- the trend figure ---------- */
+
+.figure {
+  margin: 2.5rem 0 0;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 16px;
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+.figure svg { display: block; width: 100%; height: auto; overflow: visible; }
+.figure figcaption {
+  margin-top: 1.25rem; color: var(--muted); font-size: 0.9375rem; max-width: 46rem;
+}
+.figure figcaption b { color: var(--ink); font-weight: 600; }
+
+/* ---------- the receipt ---------- */
+
+.receipt {
+  margin-top: 2rem;
+  max-width: 26rem;
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+.receipt div { display: flex; justify-content: space-between; padding-block: 0.4rem; }
+.receipt .soft { color: var(--muted); font-size: 0.9375rem; }
+.receipt .lit { background: rgba(212, 165, 116, 0.22); border-radius: 5px;
+                margin-inline: -0.4rem; padding-inline: 0.4rem; }
+.receipt .tot { border-top: 1px solid var(--edge); margin-top: 0.4rem;
+                padding-top: 0.7rem; font-weight: 700; }
+
+/* ---------- FAQ ---------- */
+
+.faq { margin-top: 2.5rem; border-top: 1px solid var(--edge); }
+.faq details { border-bottom: 1px solid var(--edge); }
+.faq summary {
+  cursor: pointer; padding-block: 1.125rem; font-weight: 600;
+  list-style: none; display: flex; align-items: center; gap: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; margin-left: auto; color: var(--tan-deep);
+  font-size: 1.25rem; line-height: 1; font-weight: 400;
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 1.25rem; color: var(--muted); max-width: 46rem; }
+
+/* ---------- closing call to action ---------- */
+
+.closer {
+  text-align: center;
+  padding-block: clamp(3.5rem, 8vw, 5.5rem);
+  border-top: 1px solid var(--edge);
+}
+.closer h2 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem); margin: 0; letter-spacing: -0.01em;
+}
+.closer p { color: var(--muted); margin: 1rem auto 0; max-width: 34rem; }
+.closer .cta-row { justify-content: center; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }

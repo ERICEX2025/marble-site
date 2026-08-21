@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- A marble. Flat tones, one highlight.
+       The highlight is doing more than lighting: a bright catchlight in the
+       upper left of a circle is the shape of a cartoon eye, which is most of
+       why a plain sphere reads as friendly rather than as a diagram. It is
+       also the only detail here, which is why this survives 16px when a swirl
+       would not. -->
+  <circle cx="256" cy="256" r="200" fill="#E9D5B4"/>
+  <path d="M256 56 a200 200 0 0 1 141 341 a200 200 0 0 0 -282 -282 A200 200 0 0 1 256 56 Z"
+        fill="#FDF7EC"/>
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#B99C6F" stroke-width="8"/>
+  <ellipse cx="180" cy="162" rx="54" ry="35" fill="#FFFFFF" opacity="0.97"
+           transform="rotate(-34 180 162)"/>
+  <circle cx="140" cy="136" r="16" fill="#FFFFFF"/>
+</svg>
