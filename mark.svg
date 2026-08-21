@@ -1,15 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- A marble. Flat tones, one highlight.
+  <!-- A marble. One sphere, one highlight, nothing else.
        The highlight is doing more than lighting: a bright catchlight in the
        upper left of a circle is the shape of a cartoon eye, which is most of
        why a plain sphere reads as friendly rather than as a diagram. It is
-       also the only detail here, which is why this survives 16px when a swirl
-       would not. -->
-  <circle cx="256" cy="256" r="200" fill="#E9D5B4"/>
-  <path d="M256 56 a200 200 0 0 1 141 341 a200 200 0 0 0 -282 -282 A200 200 0 0 1 256 56 Z"
-        fill="#FDF7EC"/>
-  <circle cx="256" cy="256" r="200" fill="none" stroke="#B99C6F" stroke-width="8"/>
-  <ellipse cx="180" cy="162" rx="54" ry="35" fill="#FFFFFF" opacity="0.97"
-           transform="rotate(-34 180 162)"/>
-  <circle cx="140" cy="136" r="16" fill="#FFFFFF"/>
+       also the only detail, which is why it survives 16px when a swirl would not.
+
+       Built from fills only — no stroke, no transform. The rim is a filled ring
+       and the tilted highlight is an arc path, because several SVG rasterisers
+       (ImageMagick's built-in one among them) silently drop strokes and
+       transforms, and this file has to render identically everywhere it lands. -->
+
+  <circle cx="256" cy="256" r="200" fill="#A98C5E"/>
+  <circle cx="256" cy="256" r="191.5" fill="#EFDDC0"/>
+  <path d="M256 64.5 a191.5 191.5 0 0 1 135 326.5 a191.5 191.5 0 0 0 -270 -270 A191.5 191.5 0 0 1 256 64.5 Z"
+        fill="#FBF3E4"/>
+  <path d="M138.5 192 A50 32 -34 0 1 221.5 136 A50 32 -34 0 1 138.5 192 Z"
+        fill="#FFFFFF" opacity="0.96"/>
+  <circle cx="142" cy="140" r="15" fill="#FFFFFF"/>
 </svg>
