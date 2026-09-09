@@ -500,3 +500,18 @@ svg .plan { fill: none; stroke: var(--grey); stroke-width: 2; stroke-dasharray: 
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+
+/* ── what it costs ── */
+.tiers-lede { color: var(--muted); max-width: 46rem; margin: 0.5rem 0 0; }
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.tier { border: 1px solid var(--edge); border-radius: 16px; padding: 1.25rem 1.375rem; }
+.tier h3 { margin: 0 0 0.2rem; font-size: 1.125rem; }
+.tier .price { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.9375rem; }
+.tier ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.45rem; color: var(--muted); }
+.tier li::before { content: "✓ "; color: var(--sage); }
