@@ -515,3 +515,5 @@ svg .plan { fill: none; stroke: var(--grey); stroke-width: 2; stroke-dasharray: 
 .tier .price { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.9375rem; }
 .tier ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.45rem; color: var(--muted); }
 .tier li::before { content: "✓ "; color: var(--sage); }
+
+html { scroll-behavior: smooth; }
