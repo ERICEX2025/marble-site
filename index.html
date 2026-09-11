@@ -15,39 +15,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="wrap">
   <header class="masthead">
     <img src="icon.png" alt="">
-    <span class="name">Marble</span>
+    <a class="name" href="./" aria-label="Marble home">Marble</a>
     <nav>
+      <a href="#correction">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="support/">Support</a>
       <a href="privacy/">Privacy</a>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ─────────────────────────── hero ─────────────────────────── -->
     <section class="hero">
       <div>
-        <p class="label">AI nutrition coach</p>
-        <h1>Every calorie app is guessing. This one <em>finds out</em>.</h1>
+        <p class="label">A little more understanding. Every day.</p>
+        <h1>A calorie target.<br>That learns <em>you.</em></h1>
         <p class="lede">
-          Photograph your food. Step on the scale. Marble works out what you
-          actually burn — and corrects the target it gave you on day one.
+          Photograph your meals. Follow your weight trend. Marble uses what happens over time to refine the calorie target you started with.
         </p>
         <div class="cta-row">
-          <a class="cta" href="#">Download on the App Store</a>
-          <span class="cta-note">iPhone · free, no account</span>
+          <a class="cta" href="#correction">See how it adapts <span aria-hidden="true">↗</span></a>
+          <span class="cta-note">Made for iPhone · No account needed</span>
         </div>
       </div>
-      <figure class="hero-art">
-        <img src="hero.png" width="900" height="900"
-             alt="A marble: a pale sphere with a bright highlight.">
-      </figure>
+      <div class="hero-product" aria-label="Illustrative Marble daily summary">
+        <img class="hero-marble" src="hero.png" width="900" height="900" alt="" fetchpriority="high">
+        <div class="daily-card">
+          <div class="daily-heading"><span>Today</span><span class="daily-date">Wednesday</span></div>
+          <p class="daily-eyebrow">Room for the rest of your day</p>
+          <div class="daily-number">750 <span>kcal left</span></div>
+          <div class="daily-track"><span></span></div>
+          <div class="daily-totals"><span>1,540 eaten</span><span>2,290 target</span></div>
+          <div class="daily-meal"><div><strong>Chicken bowl</strong><span>Lunch · 42 g protein</span></div><strong>640 <small>kcal</small></strong></div>
+          <div class="daily-meal"><div><strong>Greek yogurt &amp; berries</strong><span>Breakfast · 28 g protein</span></div><strong>310 <small>kcal</small></strong></div>
+          <div class="daily-bottom"><span>Log. Live. Learn.</span><a href="#app" aria-label="Explore the Marble app">Explore the app ↗</a></div>
+        </div>
+        <div class="adaptation"><span class="adaptation-mark" aria-hidden="true">↗</span><div><strong>Your target gets to know you.</strong><span>From a starting estimate to your own trend.</span></div></div>
+        <p class="example-label">An illustrative day in Marble</p>
+      </div>
     </section>
 
     <hr class="rule">
@@ -55,7 +67,8 @@
     <!-- ─────────────────── 1. the scale (toggle) ─────────────────── -->
     <section class="sec reveal" id="scale">
       <p class="label">The scale</p>
-      <h2>Your scale lies. Every morning.</h2>
+      <h2>One morning is a dot.<br>The trend tells the story.</h2>
+      <p class="section-intro">Switch views to see the same 28 weigh-ins with a little perspective.</p>
 
       <div class="switch" role="group" aria-label="What the chart shows">
         <button type="button" data-view="raw" aria-pressed="true">What the scale said</button>
@@ -92,8 +105,8 @@
         </svg>
         <div class="axis"><span>Day 1</span><span>Day 28</span></div>
         <figcaption>
-          <span data-cap="raw">The two circled mornings are one night apart. <b>2.8 lb.</b> Nobody gains that in fat.</span>
-          <span data-cap="trend" hidden>Same 28 mornings, noise removed. <b>Down 5 lb</b> — and it never once told you to panic.</span>
+          <span data-cap="raw">Two mornings, one night apart. <b>A 2.8 lb difference.</b> A single reading doesn’t explain the change.</span>
+          <span data-cap="trend" hidden>The same 28 mornings, smoothed into a trend. Look at the direction over time.</span>
         </figcaption>
       </figure>
     </section>
@@ -103,7 +116,8 @@
     <!-- ───────────── 2. the correction (scrubber) ───────────── -->
     <section class="sec reveal" id="correction">
       <p class="label">The correction</p>
-      <h2>Two weeks in, it tells you it was wrong.</h2>
+      <h2>A starting guess.<br>Then, a better fit.</h2>
+      <p class="section-intro">Move through an example fortnight. See how the target responds when the measured trend differs from the plan.</p>
 
       <div class="lab">
         <div class="readout">
@@ -145,6 +159,7 @@
           <span class="key plan-key">the plan</span>
         </div>
 
+        <div class="scrub-caption"><span>Drag through the days</span><span>Day 1 — Day 15</span></div>
         <label class="scrub">
           <span class="vh">Days of weigh-ins</span>
           <input type="range" id="scrub" min="1" max="15" step="1" value="1">
@@ -164,7 +179,8 @@
     <!-- ───────────────── 3. the app (tabs) ───────────────── -->
     <section class="sec reveal" id="app">
       <p class="label">The app</p>
-      <h2>Three screens. Nothing to learn.</h2>
+      <h2>Your day, in perspective.</h2>
+      <p class="section-intro">A place for your meals, your longer view, and your questions. Explore three views from the app.</p>
 
       <div class="tabs" role="tablist" aria-label="Screens">
         <button role="tab" id="t-today"  aria-controls="p-today"  aria-selected="true">Today</button>
@@ -181,7 +197,7 @@
             <div class="cap" style="margin-top:0.7rem">Today</div>
             <div class="row" style="align-items:baseline;gap:0.4rem;margin-top:0.2rem">
               <span class="big">750</span><span class="dim">to eat</span>
-              <span class="push"></span><span class="dim" style="font-size:0.5rem">estimated</span>
+              <span class="push"></span><span class="dim" style="font-size:0.75rem">estimated</span>
             </div>
             <div class="track" style="margin-top:0.5rem"><i style="width:67%"></i></div>
             <div class="row sb dim" style="margin-top:0.4rem">
@@ -199,7 +215,7 @@
             <div class="meal"><span class="thumb"></span><span>Protein shake</span>
               <span class="push"></span><span class="dim">300</span></div>
             <div class="push"></div>
-            <div class="pill">Weigh in — 10 seconds</div>
+            <div class="pill">Log a meal</div>
           </div>
         </div>
 
@@ -230,13 +246,13 @@
                     d="M4,24 L19,29 L34,30 L49,29 L64,35 L79,37 L94,44 L109,43 L124,40 L139,46 L154,53 L169,54 L184,53 L197,60"/>
             </svg>
             <div class="dim" style="margin-top:0.6rem">
-              The two circled readings are one night apart — 2.6 lb. That's water.</div>
+              Two readings, one night apart. The longer trend helps put the change in context.</div>
             <div class="push"></div>
           </div>
         </div>
 
         <div class="pane" id="p-coach" role="tabpanel" aria-labelledby="t-coach" hidden
-             data-cap="It has read every meal and every weigh-in, so it answers about you.">
+             data-cap="Ask questions about your meals and goals, with context from your record.">
           <div class="screen">
             <div class="row sb"><span style="font-weight:700">Coach</span></div>
             <div class="bubble me" style="margin-top:0.7rem">I'm up 3 lb since Monday</div>
@@ -255,6 +271,7 @@
         </div>
       </div>
 
+      <p class="example-label">Illustrative product views</p>
       <p class="stage-cap" id="stagecap">What's left, and what you ate. One timescale, no streak to protect.</p>
     </section>
 
@@ -263,7 +280,7 @@
     <!-- ───────────── 4. where the number starts ───────────── -->
     <section class="sec reveal">
       <p class="label">Where the number starts</p>
-      <h2>We show you the shaky line.</h2>
+      <h2>You can see where<br>your number comes from.</h2>
 
       <figure class="receipt">
         <div class="soft"><span>at rest</span><span>1,800</span></div>
@@ -283,7 +300,7 @@
     <!-- ───────────── 5. what it asks of you ───────────── -->
     <section class="sec reveal">
       <p class="label">What it asks of you</p>
-      <h2>Nothing, to begin with.</h2>
+      <h2>Less setup.<br>More getting on with it.</h2>
       <ul class="chips">
         <li>No account</li>
         <li>No email</li>
@@ -299,8 +316,8 @@
     <!-- ───────────── 5b. what it costs ───────────── -->
     <section class="sec reveal" id="pricing">
       <p class="label">What it costs</p>
-      <h2>Free to use. Plus if you want the better reader.</h2>
-      <p class="tiers-lede">Two models read plates for Marble, both made by Anthropic. Free uses Claude Haiku, which is fast and fine for most meals. Plus uses Claude Sonnet, which is better at judging how much is on the plate. Your first two weeks are on Plus, with no card.</p>
+      <h2>The essentials are free.<br>Go a little further with Plus.</h2>
+      <p class="tiers-lede">Two models read plates for Marble, both made by Anthropic. Free uses Claude Haiku; Plus uses Claude Sonnet for meal estimates and includes the coach. Your first two weeks are on Plus, with no card.</p>
       <div class="tiers">
         <div class="tier">
           <h3>Free</h3>
@@ -311,7 +328,8 @@
             <li>Weigh-ins, your trend, and every correction</li>
           </ul>
         </div>
-        <div class="tier">
+        <div class="tier tier-plus">
+          <p class="tier-label">Your first two weeks, on us</p>
           <h3>Plus</h3>
           <p class="price">$4.99 a month</p>
           <ul>
@@ -333,10 +351,7 @@
         <details>
           <summary>How accurate is a photo, really?</summary>
           <p>
-            It's an estimate. But reading your meals a little low every time just
-            means the corrected target settles a little lower to match — and your
-            results still land where you wanted them. Consistency matters more
-            than accuracy here.
+            A photo gives an estimate, and portions or hidden ingredients can be hard to judge. You can edit the numbers. Consistent logging gives Marble more useful context for adjusting your target, but it does not make individual meal estimates exact.
           </p>
         </details>
         <details>
@@ -363,8 +378,7 @@
           <summary>Where does my data go?</summary>
           <p>
             Your weigh-ins never leave your phone; the trend and every correction
-            are computed on the device. Meal photos are sent to be analysed, and
-            that's the only thing that goes out. Detail on the
+            are computed on the device. Meal photos, descriptions and coach messages are sent for AI processing. Barcode lookups go to Open Food Facts, and a random app identifier is used to manage AI usage. Detail on the
             <a href="privacy/">privacy page</a>.
           </p>
         </details>
@@ -384,7 +398,7 @@
       <h2>Stop trusting the number.<br>Start measuring it.</h2>
       <p>Free, no account, and it will tell you when it's wrong.</p>
       <div class="cta-row">
-        <a class="cta" href="#">Download on the App Store</a>
+        <a class="cta" href="support/">Get in touch about Marble <span aria-hidden="true">↗</span></a>
         <span class="cta-note">iPhone · free, no account</span>
       </div>
     </section>
@@ -440,6 +454,9 @@
                  12: "−0.6", 13: "−0.5", 14: "−0.5", 15: "−0.5" };
 
     var slider   = document.getElementById("scrub");
+    var interacted = false;
+    slider.addEventListener("pointerdown", function () { interacted = true; });
+    slider.addEventListener("keydown", function () { interacted = true; });
     var reveal   = document.getElementById("rvr");
     var target   = document.getElementById("target");
     var badge    = document.getElementById("badge");
@@ -465,7 +482,7 @@
         : "Day one. The target is arithmetic, and arithmetic can be wrong.";
     }
 
-    slider.addEventListener("input", function () { draw(+slider.value); });
+    slider.addEventListener("input", function () { interacted = true; draw(+slider.value); });
     draw(1);
 
     /* Play it once, the first time it comes into view — the control is only
@@ -478,6 +495,7 @@
         self.disconnect();
         var day = 1;
         var tick = setInterval(function () {
+          if (interacted) { clearInterval(tick); return; }
           day += 1;
           slider.value = day;
           draw(day);
