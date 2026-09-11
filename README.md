@@ -1,15 +1,7 @@
-# Marble website
+# Marble website hosting
 
-The public website for [getmarble.app](https://getmarble.app). This repository contains the static homepage, interactive product examples, privacy policy, and support page.
+Website source has moved to [`site/` in ERICEX2025/marble](https://github.com/ERICEX2025/marble/tree/main/site).
 
-The iOS application and Supabase backend live separately in [ERICEX2025/marble](https://github.com/ERICEX2025/marble), typically checked out at `../Marble`.
+**Make all website changes in the Marble application repository.** Its website workflow publishes only public site assets to this repository's `pages` branch. GitHub Pages serves that branch at [getmarble.app](https://getmarble.app).
 
-## Local preview
-
-Run `python3 -m http.server 4187 --bind 127.0.0.1` in this directory, then open http://127.0.0.1:4187. No build or dependencies are required.
-
-## Publishing
-
-The current public site is served by GitHub Pages, with `CNAME` pointing to `getmarble.app`. Preserve the existing Pages settings and DNS when changing content. Local edits are not published until the deployment branch is pushed.
-
-Keep pricing, free-tier limits, model names, and product claims aligned with the iOS app and backend. Product examples are illustrative, not screenshots or individual predictions. The App Store URL was a placeholder; the refreshed page uses working demo and support links until a verified listing URL is available.
+This repository remains a hosting destination because the current GitHub plan does not support Pages directly from the private application repository. Its `main` branch preserves the previous site and history as a migration fallback; it is no longer the editable source of truth.
